@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\DoctorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +21,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
+
+Route::get('/create', [App\Http\Controllers\DoctorController::class, 'create']);
+
+Route::post('/create', [App\Http\Controllers\DoctorController::class, 'store'])->name('doctor.store');
+
+
 
 Auth::routes();
 
