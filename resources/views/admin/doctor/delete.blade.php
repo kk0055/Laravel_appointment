@@ -44,7 +44,7 @@
             @method('DELETE')
 			
             <div class="card-footer">
-                <button type="submit" class="btn btn-danger mr-2">Confrim</button>
+                <button type="submit" class="btn btn-danger mr-2">Delete</button>
                 <a href="{{route('doctor.index')}}" class="btn btn-secondary">
                     Cancel
                   

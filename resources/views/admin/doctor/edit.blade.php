@@ -64,7 +64,7 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<label for="">Password</label>
-					<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="doctor password">
+					<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="doctor password" value="{{ $user->password }}">
                      @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
 				<div class="row">
 					<div class="col-lg-6">
 						<label for="">Education</label>
-						<input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="doctor highest degree" value="                   {{$user->education}}">
+						<input type="text" name="education" class="form-control @error('education') is-invalid @enderror" placeholder="doctor highest degree" value="{{$user->education}}">
                          @error('education')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -110,24 +110,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="">Specialist</label>
+                        {{-- <label for="">Specialist</label>
                         <select name="department" class="form-control">
-                          
-
-                       
-
-
-
+               
                             @foreach(App\Department::all() as $department)
                             <option value="{{$department->department}}" @if($user->department==$department->department)selected @endif>{{$department->department}}</option> 
                             @endforeach
 
-
-                         
-
-                        </select>
-
-
+                        </select> --}}
 
                          @error('department')
                                     <span class="invalid-feedback" role="alert">
@@ -171,7 +161,7 @@
                         <label>Role</label>
                         <select name="role_id" class="form-control @error('role_id') is-invalid @enderror">
                             <option value="">Please select role</option>
-                            @foreach(App\Role::where('name','!=','patient')->get() as $role)
+                            @foreach(App\Models\Role::where('name','!=','patient')->get() as $role)
           <option value="{{$role->id}}"@if($user->role_id==$role->id)selected @endif>{{$role->name}}</option>
                             @endforeach
                             

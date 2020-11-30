@@ -39,12 +39,10 @@ class DoctorController extends Controller
         $this->validateStore($request);
         $data = $request->all();
         $image = $request->file('image');
-        $name = $image->hashName();
-        $destination = public_path('/images');
-        $image->move($destination,$name);
+        $name = (new User)->userAvatar($request);
 
         $data['image'] = $name;
-        $data['password'] = $request->password;
+        $data['password'] = bcrypt($request->password);
 
         User::create($data);
          
@@ -113,9 +111,9 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-       if(auth()->user()->id == $id){
-            abort(401);
-       }
+    //    if(auth()->user()->id == $id){
+    //         abort(401);
+    //    }
        $user = User::find($id);
        $userDelete = $user->delete();
        if($userDelete){
@@ -149,7 +147,7 @@ class DoctorController extends Controller
             'gender'=>'required',
             'education'=>'required',
             'address'=>'required',
-            'department'=>'required',
+            // 'department'=>'required',
             'phone_number'=>'required|numeric',
             'image'=>'mimes:jpeg,jpg,png',
             'role_id'=>'required',
