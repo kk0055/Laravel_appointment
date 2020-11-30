@@ -17,6 +17,7 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'index
 
 Route::resource('/doctor', App\Http\Controllers\DoctorController::class );
 
+Route::resource('appointment', App\Http\Controllers\AppointmentController::class );
 
 
 Auth::routes();

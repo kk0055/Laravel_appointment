@@ -1,6 +1,8 @@
-2020/11/30    until 20
+2020/11/30    until 22
 データは来てるがDoctorが保存されない
 vaidateStoreメソッドに↓の記述があったのが原因.
 この項目はform内に無い。だからエラーも出なかった
 'department'=>'required',
  unlink(public_path('images/'.$user->image));
+
+ <img src="src/img/brand-white.svg" class="header-brand-img" alt="lavalite">

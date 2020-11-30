@@ -1,7 +1,7 @@
 <div class="page-wrap">
                 <div class="app-sidebar colored">
                     <div class="sidebar-header">
-                        <a class="header-brand" href="{{url('/dashboard')}}">
+                        <a class="header-brand" href="{{url('/doctor')}}">
                             <div class="logo-img">
                               
                             </div>
@@ -16,13 +16,13 @@
                             <nav id="main-menu-navigation" class="navigation-main">
                                 <div class="nav-lavel">Navigation</div>
                                 <div class="nav-item active">
-                                    <a href="{{url('dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
+                                    <a href="{{url('doctor')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                                 </div>
                               <!--   <div class="nav-item">
                                     <a href="pages/navbar.html"><i class="ik ik-menu"></i><span>Navigation</span> <span class="badge badge-success">New</span></a>
                                 </div> -->
 
-                                @if(auth()->check()&& auth()->user()->role->name === 'admin')
+                                {{-- @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Department</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
@@ -31,7 +31,7 @@
                                        
                                     </div>
                                 </div>
-                                @endif
+                                @endif --}}
 
                                   @if(auth()->check()&& auth()->user()->role->name === 'admin')
                                 <div class="nav-item has-sub">
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                                 @endif
-                                  @if(auth()->check()&& auth()->user()->role->name === 'doctor')
+                                  {{-- @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Appointment Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
                                 
-                                @endif
+                                @endif --}}
 
                                 <div class="nav-item active">
                                     <a onclick="event.preventDefault();
