@@ -40,6 +40,7 @@ class User extends Authenticatable
     ];
 
     public function role(){
+         //roleテーブルのid,usersテーブルのrole_id, 
         return $this->hasOne('App\Models\Role','id','role_id');
     }
 

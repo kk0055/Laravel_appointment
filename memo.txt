@@ -1,0 +1,5 @@
+2020/11/30
+データは来てるがDoctorが保存されない
+vaidateStoreメソッドに↓の記述があったのが原因.
+この項目はform内に無い
+'department'=>'required',

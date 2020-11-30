@@ -35,14 +35,19 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $this->validateStore($request);
         $data = $request->all();
-        $name = (new User)->userAvatar($request);
+        $image = $request->file('image');
+        $name = $image->hashName();
+        $destination = public_path('/images');
+        $image->move($destination,$name);
 
         $data['image'] = $name;
-        $data['password'] = bcrypt($request->password);
-        User::create($data);
+        $data['password'] = $request->password;
 
+        User::create($data);
+         
         return redirect()->back()->with('message','Doctor added successfully');
     }
 
@@ -128,7 +133,7 @@ class DoctorController extends Controller
             'gender'=>'required',
             'education'=>'required',
             'address'=>'required',
-            'department'=>'required',
+            // 'department'=>'required',
             'phone_number'=>'required|numeric',
             'image'=>'required|mimes:jpeg,jpg,png',
             'role_id'=>'required',
