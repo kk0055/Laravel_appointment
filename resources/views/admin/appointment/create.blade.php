@@ -60,8 +60,9 @@
     <div class="card">
         <div class="card-header">
             Choose AM time
-           <span style="margin-left: 700px">Check/Uncheck
+           <span style="margin-left:50px ">
                <input type="checkbox" onclick=" for(c in document.getElementsByName('time[]')) document.getElementsByName('time[]').item(c).checked=this.checked" >
+               Check/Uncheck
            </span>
         </div>
         <div class="card-body">
@@ -133,55 +134,55 @@
                   <td><input type="checkbox" name="time[]"  value="12.40pm">12.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">7</th>
+                  <th scope="row">8</th>
                   <td><input type="checkbox" name="time[]"  value="1pm">1pm</td>
                   <td><input type="checkbox" name="time[]"  value="1.20pm">1.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="1.40pm">1.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">8</th>
+                  <th scope="row">9</th>
                   <td><input type="checkbox" name="time[]"  value="2pm">2pm</td>
                   <td><input type="checkbox" name="time[]"  value="2.20pm">2.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="2.40pm">2.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">9</th>
+                  <th scope="row">10</th>
                   <td><input type="checkbox" name="time[]"  value="3pm">3pm</td>
                   <td><input type="checkbox" name="time[]"  value="3.20pm">3.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="3.40pm">3.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">10</th>
+                  <th scope="row">11</th>
                   <td><input type="checkbox" name="time[]"  value="4pm">4pm</td>
                   <td><input type="checkbox" name="time[]"  value="4.20pm">4.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="4.40pm">4.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">11</th>
+                  <th scope="row">12</th>
                   <td><input type="checkbox" name="time[]"  value="5pm">5pm</td>
                   <td><input type="checkbox" name="time[]"  value="5.20pm">5.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="5.40pm">5.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">12</th>
+                  <th scope="row">13</th>
                   <td><input type="checkbox" name="time[]"  value="6pm">6pm</td>
                   <td><input type="checkbox" name="time[]"  value="6.20pm">6.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="6.40pm">6.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">13</th>
+                  <th scope="row">14</th>
                   <td><input type="checkbox" name="time[]"  value="7pm">7pm</td>
                   <td><input type="checkbox" name="time[]"  value="7.20pm">7.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="7.40pm">7.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">14</th>
+                  <th scope="row">15</th>
                   <td><input type="checkbox" name="time[]"  value="8pm">8pm</td>
                   <td><input type="checkbox" name="time[]"  value="8.20pm">8.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="8.40pm">8.40pm</td>
                 </tr>
                 <tr>
-                  <th scope="row">15</th>
+                  <th scope="row">16</th>
                   <td><input type="checkbox" name="time[]"  value="9pm">9pm</td>
                   <td><input type="checkbox" name="time[]"  value="9.20pm">9.20pm</td>
                   <td><input type="checkbox" name="time[]"  value="9.40pm">9.40pm</td>

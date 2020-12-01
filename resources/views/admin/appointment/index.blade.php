@@ -43,8 +43,8 @@
         @endif
         @foreach($errors->all() as $error)
             <div class="alert alert-danger">
-                {{$error}}
-                
+                {{$error}} 
+              
             </div>
                 
         @endforeach
@@ -53,30 +53,33 @@
     <form action="{{route('appointment.check')}}" method="post">@csrf
  
     <div class="card">
+      @if(isset($date))
         <div class="card-header">
-            Choose date
-            <br>
-            
-            @if(isset($date))
-                Your timetable for: 
-                {{$date}}
-            @endif
            
+                Your timetable for: 
+                {{$date}} 
+                
+                @foreach ($times as $time)
+                {{ $time->time }},  
+                @endforeach
+                  
         </div>
-        <div class="card-body">
+        @endif
+        {{-- <div class="card-body">
          <input type="text" class="form-control datetimepicker-input" id="datepicker" data-toggle="datetimepicker" data-target="#datepicker" name="date" >
          <br>
          <button type="submit" class="btn btn-primary">check</button>
-        </div>
+        </div> --}}
     </div>
   </form>
 @if(Route::is('appointment.check'))
-   <form action="{{route('update')}}" method="post">@csrf
+   <form action="{{route('appointment.update')}}" method="post">@csrf
     <div class="card">
         <div class="card-header">
             Choose AM time
-           <span style="margin-left: 700px">Check/Uncheck
+            <span style="margin-left:50px ">
                <input type="checkbox" onclick=" for(c in document.getElementsByName('time[]')) document.getElementsByName('time[]').item(c).checked=this.checked" >
+               Check/Uncheck
            </span>
         </div>
 
@@ -87,7 +90,7 @@
              
                
               <tbody>
-                <input type="hidden" name="appoinmentId" value="{{$appointmentId}}">
+                <input type="hidden" name="appointmentId" value="{{$appointmentId}}">
                 <tr>
                   <th scope="row">1</th>
                   <td><input type="checkbox" name="time[]"  value="6am" @if(isset($times)){{$times->contains('time','6am')?'checked':''}}@endif>6am</td>
@@ -239,12 +242,13 @@
             <tr>
             
               <th scope="row"></th>
+              <td>NA</td>
               <td>{{$appoinment->doctor->name}}</td>
               <td>{{$appoinment->date}}</td>
               <td>
                     <form action="{{route('appointment.check')}}" method="post">@csrf
                         <input type="hidden" name="date" value="{{$appoinment->date}}">
-                    <button type="submit" class="btn btn-primary">View/Update</button>
+                    <button type="submit" class="btn btn-primary">View / Update</button>
 
 
                     </form>

@@ -10,4 +10,8 @@ class Time extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function Appointment(){
+        return $this->belongsTo('App\Models\Time');
+    }
 }

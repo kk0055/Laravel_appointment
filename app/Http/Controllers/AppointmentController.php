@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use App\Models\Time;
+use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
 {
@@ -16,8 +17,10 @@ class AppointmentController extends Controller
     public function index()
     {
         $myappointments = Appointment::latest()->where('user_id',auth()->user()->id)->get();
+
         
-        return view('admin.appointment.index',compact('myappointments'));
+        
+        return view('admin.appointment.index',compact('myappointments',));
        
     }
 
@@ -54,7 +57,7 @@ class AppointmentController extends Controller
                 //'stauts'=>0
             ]);
         }
-        return redirect()->back()->with('message','Appointment created for'. $request->date);
+        return redirect('appointment')->with('message','Appointment created for'. $request->date);
     }
 
     /**
@@ -117,7 +120,7 @@ class AppointmentController extends Controller
     }
 
     public function updateTime(Request $request){
-        $appointmentId = $request->appoinmentId;
+        $appointmentId = $request->appointmentId;
         $appointment = Time::where('appointment_id',$appointmentId)->delete();
         foreach($request->time as $time){
             Time::create([

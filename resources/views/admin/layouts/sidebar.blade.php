@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                                 @endif
-                                  {{-- @if(auth()->check()&& auth()->user()->role->name === 'doctor')
+                                   @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Appointment Time</span> <span class="badge badge-danger"></span></a>
                                     <div class="submenu-content">
@@ -53,7 +53,7 @@
                                     </div>
                                 </div>
                                 @endif
-
+{{--
                                 @if(auth()->check()&& auth()->user()->role->name === 'doctor')
                                    <div class="nav-item has-sub">
                                     <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Patients</span> <span class="badge badge-danger"></span></a>
