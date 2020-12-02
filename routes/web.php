@@ -8,11 +8,13 @@ use App\Http\Controllers\DashboardController;
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 \
 
-//Frontend
+//FrontendController
 Route::get('/', [App\Http\Controllers\FrontendController::class,'index' ]);
 Route::get('/new-appointment/{doctorId}/{date}', [App\Http\Controllers\FrontendController::class,'show' ])->name('create.appointment');
 
 Route::post('/book/appointment',[App\Http\Controllers\FrontendController::class,'store' ])->name('booking.appointment');
+
+Route::get('/my-booking', [App\Http\Controllers\FrontendController::class,'myBookings' ])->name('my.booking')->middleware('auth');
 
 //Dashboard
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'index' ]);
