@@ -5,6 +5,7 @@ use App\Models\Appointment;
 use App\Models\Time;
 use App\Models\User;
 use App\Models\Booking;
+use App\Models\Prescription;
 use App\Mail\AppointmentMail;
 
 use Illuminate\Http\Request;
@@ -92,10 +93,29 @@ class FrontendController extends Controller
             ->whereDate('created_at',date('Y-m-d'))
             ->exists();
     }
+
+
     public function myBookings()
     {
       $appointments = Booking::latest()->where('user_id',auth()->user()->id)->get();
       return view('booking.index',compact('appointments'));
+    }
+    public function myPrescription()
+    {
+        $prescriptions = Prescription::where('user_id',auth()->user()->id)->get();
+        return view('my-prescription',compact('prescriptions'));
+    }
+
+    public function doctorToday(Request $request)
+    {
+        $doctors = Appointment::with('doctor')->whereDate('date',date('Y-m-d'))->get();
+        return $doctors;
+    }
+
+    public function findDoctors(Request $request)
+    {
+        $doctors = Appointment::with('doctor')->whereDate('date',$request->date)->get();
+        return $doctors;
     }
   
 }
