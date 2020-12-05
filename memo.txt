@@ -1,4 +1,7 @@
 2020/12/2    until 
+
+****************************/
+2020/12/2    until 
 /new-appointment/3/2020-12-04
 メールが飛ばない。
 →タイプミス。治った
@@ -20,3 +23,11 @@ vaidateStoreメソッドに↓の記述があったのが原因.
 'department'=>'required',
  unlink(public_path('images/'.$user->image));
 
+************************************/
+仕様
+1.admin is able to create doctors
+2.doctos can create appointment time
+3.fetch the appointment time with doctors details at frontend
+4.patients are able to book an appointment
+5.profile of patient
+6.patient vistis the doctor

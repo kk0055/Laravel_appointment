@@ -83,9 +83,9 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                      @if(auth()->check()&& auth()->user()->role->name === 'patient')
-                                    <a href="{{url('user-profile')}}"  class="dropdown-item"style="color: #000; font-size:16px; font-weight: bold;">Profile</a>
+                                    <a href="{{url('profileinfo')}}"  class="dropdown-item"style="color: #000; font-size:16px; font-weight: bold;">Profile</a>
                                     @else 
-                                     <a href="{{url('dashboard')}}"  class="dropdown-item">Dashboard</a>
+                                     <a href="{{url('dashboard')}}"  class="dropdown-item" style="color: #000; font-size:16px; font-weight: bold;">Dashboard</a>
                                     @endif
                                     <a style="color: #000; font-size:16px; font-weight: bold;" class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
