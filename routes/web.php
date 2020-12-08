@@ -22,13 +22,14 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'index
 
 // Route::get('/create', [App\Http\Controllers\DoctorController::class, 'create']);
 
-Route::resource('/doctor', App\Http\Controllers\DoctorController::class );
+
 
 Auth::routes();
+Route::resource('/doctor', App\Http\Controllers\DoctorController::class );
+
 
 //Appointment
 Route::get('/appointment/check', [App\Http\Controllers\AppointmentController::class, 'check'])->name('appointment.check');
-
 
 Route::resource('appointment', App\Http\Controllers\AppointmentController::class );
 
@@ -41,3 +42,12 @@ Route::get('/profileinfo', [App\Http\Controllers\ProfileController::class, 'inde
 Route::post('/profileinfo', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.store');
 
 Route::post('/profile-pic', [App\Http\Controllers\ProfileController::class, 'profilePic'])->name('profile.pic')->middleware('auth');
+
+//Patient
+Route::get('/patient',[App\Http\Controllers\PatientlistController::class, 'index'])->name('patient');
+Route::get('/patient/all',[App\Http\Controllers\PatientlistController::class, 'allTimeAppointment'])->name('all.appointments');
+Route::get('/status/update{id}',[App\Http\Controllers\PatientlistController::class, 'toggleStatus'])->name('update.status');
+
+//Prescription
+Route::get('/patient-today',[App\Http\Controllers\PrescriptionController::class, 'index'])->name('patients.today');
+Route::post('/prescription',[App\Http\Controllers\PrescriptionController::class, 'store'])->name('prescription');

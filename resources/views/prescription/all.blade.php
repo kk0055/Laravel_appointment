@@ -2,15 +2,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header"> 
-
-                     Appointment ({{$bookings->count()}})
-                 </div>
              
-
-                
+              <div class="card-header" >
+       
+                     Appointment ({{$patients->count()}})
+                 </div>
 
                 <div class="card-body">
                     <table class="table table-striped">
@@ -27,27 +25,36 @@
                           <th scope="col">Time</th>
                           <th scope="col">Doctor</th>
                           <th scope="col">Status</th>
+                          <th scope="col">Prescription</th>
                         </tr>
                       </thead>
                       <tbody>
-                        @forelse($bookings as $key=>$booking)
+                        @forelse($patients as $key=>$patient)
                         <tr>
                           <th scope="row">{{$key+1}}</th>
-                          <td><img src="/profilepic/{{$booking->user->image}}" width="80" style="border-radius: 50%;">
+                          <td><img src="/profile/{{$patient->user->image}}" width="80" style="border-radius: 50%;">
                           </td>
-                          <td>{{$booking->date}}</td>
-                          <td>{{$booking->user->name}}</td>
-                          <td>{{$booking->user->email}}</td>
-                          <td>{{$booking->user->phone_number}}</td>
-                          <td>{{$booking->user->gender}}</td>
-                          <td>{{$booking->time}}</td>
-                          <td>{{$booking->doctor->name}}</td>
                           <td>
-                              @if($booking->status==0)
-                              <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-primary"> Pending</button></a>
-                              @else 
-                               <a href="{{route('update.status',[$booking->id])}}"><button class="btn btn-success"> Cheked</button></a>
-                              @endif
+                                             
+</td>
+                          <td>{{$patient->user->name}}</td>
+                          <td>{{$patient->user->email}}</td>
+                          <td>{{$patient->user->phone_number}}</td>
+                          <td>{{$patient->user->gender}}</td>
+                          <td>{{$patient->time}}</td>
+                          <td>{{$patient->doctor->name}}</td>
+                          <td>
+                            @if($patient->status==1)
+                             checked
+                             @endif
+                          </td>
+                          <td>
+                              <!-- Button trigger modal -->
+              
+                   <a href="{{route('prescription.show',[$patient->user_id,$patient->date])}}" class="btn btn-secondary">View prescription</a>
+                  
+
+                               
                           </td>
                         </tr>
                         @empty
@@ -56,11 +63,10 @@
                        
                       </tbody>
                     </table>
-
                 </div>
-                {{$bookings->links()}}
             </div>
         </div>
     </div>
 </div>
+
 @endsection
