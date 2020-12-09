@@ -1,3 +1,8 @@
+2020/12/9    until 7
+Laravel8 resourceの書き方
+Route::resource('department',App\Http\Controllers\DepartmentController::class);
+ php artisan route:list --name=department
+
 2020/12/8    until 75
 *******************/
 2020/12/5    until 67

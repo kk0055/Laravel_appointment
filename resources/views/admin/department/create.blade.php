@@ -17,8 +17,7 @@
         <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="../index.html"><i class="ik ik-home"></i></a>
-                </li>
+                    <a href="{{ route('department.index') }}"><i class="ik ik-home"></i></a>
                 <li class="breadcrumb-item"><a href="#">Department</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create</li>
             </ol>
@@ -35,22 +34,22 @@
             </div>
         @endif
        
-	<div class="card">
-	<div class="card-header"><h3>Add Department</h3></div>
-	<div class="card-body">
-		<form class="forms-sample" action="{{route('department.store')}}" method="post" >@csrf
-			<div class="row">
-				<div class="col-lg-6">
-                    <div class="form-group">
+<div class="card">
+<div class="card-header"><h3>Add Department</h3></div>
+<div class="card-body">
+<form class="forms-sample" action="{{route('department.store')}}" method="post" >@csrf
+<div class="row">
+<div class="col-lg-6">
+<div class="form-group">
 
-					<label for="">Department name</label>
-					<input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="department name" value="                   {{old('department')}}">
-                    @error('department')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-				</div>
+<label for="">Department name</label>
+<input type="text" name="department" class="form-control @error('department') is-invalid @enderror" placeholder="department name" value="{{old('department')}}">
+@error('department')
+<span class="invalid-feedback" role="alert">
+<strong>{{ $message }}</strong>
+</span>
+@enderror
+</div>
            
             <div class="form-group">
 

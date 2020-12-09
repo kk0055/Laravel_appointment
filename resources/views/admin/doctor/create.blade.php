@@ -17,7 +17,7 @@
         <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="../index.html"><i class="ik ik-home"></i></a>
+                    <a href="{{ route('doctor.index') }}"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item"><a href="#">Doctor</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Create</li>
@@ -110,14 +110,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        {{-- <label for="">Specialist</label>
+                        <label for="">Specialist</label>
                         <select name="department" class="form-control">
                             <option value="">Please select</option>
 
-                            @foreach(App\Department::all() as $d)
+                            @foreach(App\Models\Department::all() as $d)
                                 <option value="{{$d->department}}">{{$d->department}}</option>
                             @endforeach
-                        </select> --}}
+                        </select>
 
 
                          @error('department')

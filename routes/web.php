@@ -57,4 +57,4 @@ Route::post('/prescription',[App\Http\Controllers\PrescriptionController::class,
 Route::get('/prescription/{userId}/{date}',[App\Http\Controllers\PrescriptionController::class, 'show'])->name('prescription.show');
 Route::get('/prescribed-patients',[App\Http\Controllers\PrescriptionController::class, 'patientsFromPrescription'])->name('prescribed.patients');
 
-Route::resource('department',[App\Http\Controllers\DepartmentController::class]);
+Route::resource('department',App\Http\Controllers\DepartmentController::class);

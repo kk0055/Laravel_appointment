@@ -17,12 +17,12 @@
         <nav class="breadcrumb-container" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                    <a href="../index.html"><i class="ik ik-home"></i></a>
+                    <a href="{{ route('department.index') }}"><i class="ik ik-home"></i></a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">Department</a>
+                    <a href="{{ route('department.create') }}">Department Create</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Index</li>
+              
             </ol>
         </nav>
     </div>
@@ -61,10 +61,10 @@
                         
                         <td>
                             <div class="table-actions">
-                                
+                                {{-- Edit --}}
                                 <a href="{{route('department.edit',[$department->id])}}"><i class="ik ik-edit-2"></i></a>
                                 
-                                
+                                {{-- Delete --}}
                                 <form action="{{route('department.destroy',[$department->id])}}" method="post">@csrf
                                     @method('DELETE')
                                     <button type="submit"><i class="ik ik-trash-2"></i></button>

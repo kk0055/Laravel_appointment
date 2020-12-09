@@ -13,7 +13,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $users  = User::where('role_id','!=',3)->get();
+        $users  = User::where('role_id','!=',3 )->where('role_id','!=',2)->get();
         return view('admin.doctor.index',compact('users'));
     }
 
