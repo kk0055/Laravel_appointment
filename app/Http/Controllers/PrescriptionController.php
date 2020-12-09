@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Prescription;
-class PrescriptionController extends Controller
+class  PrescriptionController extends Controller
 {
     public function index()
     {

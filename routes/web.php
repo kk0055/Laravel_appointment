@@ -15,6 +15,8 @@ Route::get('/new-appointment/{doctorId}/{date}', [App\Http\Controllers\FrontendC
 Route::post('/book/appointment',[App\Http\Controllers\FrontendController::class,'store' ])->name('booking.appointment')->middleware('auth');
 
 Route::get('/my-booking', [App\Http\Controllers\FrontendController::class,'myBookings' ])->name('my.booking')->middleware('auth');
+Route::get('/my-prescription', [App\Http\Controllers\FrontendController::class,'myPrescription' ])->name('my.prescription');
+
 
 //Dashboard
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class,'index' ]);
@@ -51,3 +53,8 @@ Route::get('/status/update{id}',[App\Http\Controllers\PatientlistController::cla
 //Prescription
 Route::get('/patient-today',[App\Http\Controllers\PrescriptionController::class, 'index'])->name('patients.today');
 Route::post('/prescription',[App\Http\Controllers\PrescriptionController::class, 'store'])->name('prescription');
+
+Route::get('/prescription/{userId}/{date}',[App\Http\Controllers\PrescriptionController::class, 'show'])->name('prescription.show');
+Route::get('/prescribed-patients',[App\Http\Controllers\PrescriptionController::class, 'patientsFromPrescription'])->name('prescribed.patients');
+
+Route::resource('department',[App\Http\Controllers\DepartmentController::class]);

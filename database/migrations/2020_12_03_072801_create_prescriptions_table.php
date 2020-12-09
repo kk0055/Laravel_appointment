@@ -24,6 +24,8 @@ class CreatePrescriptionsTable extends Migration
             $table->text('procedure_to_use_medicine');
             $table->text('feedback');
             $table->string('signature');
+
+            $table->timestamps();
         });
     }
 
